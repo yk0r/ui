@@ -2102,6 +2102,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 			local Button = Elements.Template.Button:Clone()
 			Button.Name = ButtonSettings.Name
 			Button.Title.Text = ButtonSettings.Name
+			Button.Title.TextColor3 = ButtonSettings.NameColor or SelectedTheme.ComponentNameColor
 			Button.Visible = true
 			Button.Parent = TabPage
 
@@ -2699,6 +2700,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 				Dropdown.Name = DropdownSettings.Name
 			end
 			Dropdown.Title.Text = DropdownSettings.Name
+			Dropdown.Title.TextColor3 = DropdownSettings.NameColor or SelectedTheme.ComponentNameColor
 			Dropdown.Visible = true
 			Dropdown.Parent = TabPage
 
@@ -3146,6 +3148,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 			local Toggle = Elements.Template.Toggle:Clone()
 			Toggle.Name = ToggleSettings.Name
 			Toggle.Title.Text = ToggleSettings.Name
+			Toggle.Title.TextColor3 = ToggleSettings.NameColor or SelectedTheme.ComponentNameColor
 			Toggle.Visible = true
 			Toggle.Parent = TabPage
 
@@ -3318,6 +3321,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 			Slider.Title.Text = SliderSettings.Name
 			Slider.Visible = true
 			Slider.Parent = TabPage
+			Slider.Title.TextColor3 = SliderSettings.NameColor or SelectedTheme.ComponentNameColor
 
 			Slider.BackgroundTransparency = 1
 			Slider.UIStroke.Transparency = 1
