@@ -602,7 +602,7 @@ local RayfieldLibrary = {
 			PlaceholderColor = Color3.fromRGB(150, 150, 160)
 		},
 
-		local Purple = {
+		Purple = {
 		    TextColor = Color3.fromRGB(225, 225, 225),
 		    Background = Color3.fromRGB(20, 20, 20),
 		    Topbar = Color3.fromRGB(10, 10, 10),
