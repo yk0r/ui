@@ -602,6 +602,42 @@ local RayfieldLibrary = {
 			PlaceholderColor = Color3.fromRGB(150, 150, 160)
 		},
 
+		local Purple = {
+		    TextColor = Color3.fromRGB(225, 225, 225),
+		    Background = Color3.fromRGB(20, 20, 20),
+		    Topbar = Color3.fromRGB(10, 10, 10),
+		    Shadow = Color3.fromRGB(128, 0, 128), -- Fioletowy (ciemny)
+		    NotificationBackground = Color3.fromRGB(15, 15, 15),
+		    NotificationActionsBackground = Color3.fromRGB(25, 25, 25),
+		    TabBackground = Color3.fromRGB(10, 10, 10),
+		    TabStroke = Color3.fromRGB(150, 0, 150), -- Fioletowy
+		    TabBackgroundSelected = Color3.fromRGB(30, 30, 30),
+		    TabTextColor = Color3.fromRGB(200, 200, 200),
+		    SelectedTabTextColor = Color3.fromRGB(200, 0, 200), -- Fioletowy (jasny)
+		    TabIconColor = Color3.fromRGB(200, 200, 200),
+		    SelectedTabIconColor = Color3.fromRGB(200, 0, 200), -- Fioletowy (jasny)
+		    ElementBackground = Color3.fromRGB(22, 22, 22),
+		    ElementBackgroundHover = Color3.fromRGB(40, 40, 40),
+		    SecondaryElementBackground = Color3.fromRGB(15, 15, 15),
+		    ElementStroke = Color3.fromRGB(128, 0, 128), -- Fioletowy (ciemny)
+		    SecondaryElementStroke = Color3.fromRGB(100, 0, 100), -- Fioletowy (ciemniejszy)
+		    SliderBackground = Color3.fromRGB(15, 15, 15),
+		    SliderProgress = Color3.fromRGB(128, 0, 128), -- Fioletowy (ciemny)
+		    SliderStroke = Color3.fromRGB(200, 200, 200),
+		    ToggleBackground = Color3.fromRGB(30, 30, 30),
+		    ToggleEnabled = Color3.fromRGB(128, 0, 128), -- Fioletowy (ciemny)
+		    ToggleDisabled = Color3.fromRGB(100, 100, 100),
+		    ToggleEnabledStroke = Color3.fromRGB(100, 0, 100), -- Fioletowy (ciemniejszy)
+		    ToggleDisabledStroke = Color3.fromRGB(80, 80, 80),
+		    ToggleEnabledOuterStroke = Color3.fromRGB(10, 10, 10),
+		    ToggleDisabledOuterStroke = Color3.fromRGB(10, 10, 10),
+		    DropdownSelected = Color3.fromRGB(80, 0, 80), -- Fioletowy (bardzo ciemny)
+		    DropdownUnselected = Color3.fromRGB(15, 15, 15),
+		    InputBackground = Color3.fromRGB(15, 15, 15),
+		    InputStroke = Color3.fromRGB(150, 0, 150), -- Fioletowy
+		    PlaceholderColor = Color3.fromRGB(100, 0, 100) -- Fioletowy (ciemniejszy)
+		},
+
 		Serenity = {
 			TextColor = Color3.fromRGB(50, 55, 60),
 			Background = Color3.fromRGB(240, 245, 250),
