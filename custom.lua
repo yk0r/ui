@@ -3148,7 +3148,6 @@ function RayfieldLibrary:CreateWindow(Settings)
 			local Toggle = Elements.Template.Toggle:Clone()
 			Toggle.Name = ToggleSettings.Name
 			Toggle.Title.Text = ToggleSettings.Name
-			Toggle.Title.TextColor3 = ToggleSettings.NameColor or SelectedTheme.ComponentNameColor
 			Toggle.Visible = true
 			Toggle.Parent = TabPage
 
