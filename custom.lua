@@ -2102,7 +2102,6 @@ function RayfieldLibrary:CreateWindow(Settings)
 			local Button = Elements.Template.Button:Clone()
 			Button.Name = ButtonSettings.Name
 			Button.Title.Text = ButtonSettings.Name
-			Button.Title.TextColor3 = ButtonSettings.NameColor or SelectedTheme.ComponentNameColor
 			Button.Visible = true
 			Button.Parent = TabPage
 
@@ -2700,7 +2699,6 @@ function RayfieldLibrary:CreateWindow(Settings)
 				Dropdown.Name = DropdownSettings.Name
 			end
 			Dropdown.Title.Text = DropdownSettings.Name
-			Dropdown.Title.TextColor3 = DropdownSettings.NameColor or SelectedTheme.ComponentNameColor
 			Dropdown.Visible = true
 			Dropdown.Parent = TabPage
 
