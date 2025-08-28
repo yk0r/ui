@@ -3318,7 +3318,6 @@ function RayfieldLibrary:CreateWindow(Settings)
 			Slider.Title.Text = SliderSettings.Name
 			Slider.Visible = true
 			Slider.Parent = TabPage
-			Slider.Title.TextColor3 = SliderSettings.NameColor or SelectedTheme.ComponentNameColor
 
 			Slider.BackgroundTransparency = 1
 			Slider.UIStroke.Transparency = 1
