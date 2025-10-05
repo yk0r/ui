@@ -729,11 +729,14 @@ local Main = Rayfield.Main
 local MPrompt = Rayfield:FindFirstChild('Prompt')
 local Topbar = Main.Topbar
 local Elements = Main.Elements
--- Tab 切换动画函数
+local TweenService = game:GetService("TweenService")
+
+-- 获取 UIPageLayout
 local function getPageLayout()
     return Elements and Elements:FindFirstChildOfClass("UIPageLayout")
 end
 
+-- 确保每个页面都有 UIScale
 local function ensureUIScale(page)
     if page and not page:FindFirstChild("UIScale") then
         local s = Instance.new("UIScale")
@@ -742,6 +745,33 @@ local function ensureUIScale(page)
     end
 end
 
+-- Tween 整个 Frame 及子元素透明度淡出
+local function tweenOut(page, duration)
+    if not page then return end
+    TweenService:Create(page, TweenInfo.new(duration), {BackgroundTransparency = 1}):Play()
+    for _, child in ipairs(page:GetDescendants()) do
+        if child:IsA("TextLabel") or child:IsA("TextButton") then
+            TweenService:Create(child, TweenInfo.new(duration), {TextTransparency = 1}):Play()
+        elseif child:IsA("ImageLabel") or child:IsA("ImageButton") then
+            TweenService:Create(child, TweenInfo.new(duration), {ImageTransparency = 1}):Play()
+        end
+    end
+end
+
+-- Tween 整个 Frame 及子元素透明度淡入
+local function tweenIn(page, duration)
+    if not page then return end
+    TweenService:Create(page, TweenInfo.new(duration), {BackgroundTransparency = 0}):Play()
+    for _, child in ipairs(page:GetDescendants()) do
+        if child:IsA("TextLabel") or child:IsA("TextButton") then
+            TweenService:Create(child, TweenInfo.new(duration), {TextTransparency = 0}):Play()
+        elseif child:IsA("ImageLabel") or child:IsA("ImageButton") then
+            TweenService:Create(child, TweenInfo.new(duration), {ImageTransparency = 0}):Play()
+        end
+    end
+end
+
+-- Tab 切换主函数
 local function switchTab(newPage)
     local PageLayout = getPageLayout()
     if not PageLayout then return end
@@ -749,29 +779,37 @@ local function switchTab(newPage)
     local oldPage = PageLayout.CurrentPage
     if oldPage == newPage then return end
 
+    -- 确保页面有 UIScale
     ensureUIScale(newPage)
     ensureUIScale(oldPage)
 
     local oldScale = oldPage and oldPage:FindFirstChild("UIScale")
     local newScale = newPage:FindFirstChild("UIScale")
 
+    -- 新页面初始缩小并淡入
     newScale.Scale = 0.8
     newPage.Visible = true
+    tweenIn(newPage, 0.3)
 
+    -- 收起旧页面
     if oldScale then
         TweenService:Create(oldScale, TweenInfo.new(0.25, Enum.EasingStyle.Back, Enum.EasingDirection.In), {Scale = 0.8}):Play()
-        TweenService:Create(oldPage, TweenInfo.new(0.25), {GroupTransparency = 1}):Play()
+        tweenOut(oldPage, 0.25)
         task.delay(0.25, function()
             oldPage.Visible = false
             oldScale.Scale = 1
-            oldPage.GroupTransparency = 0
+            tweenIn(oldPage, 0) -- 重置透明度
         end)
     end
 
+    -- 新页面放大到正常尺寸，带弹性动画
     TweenService:Create(newScale, TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Scale = 1}):Play()
 
+    -- 跳转 UIPageLayout
     PageLayout:JumpTo(newPage)
 end
+
+
 
 local LoadingFrame = Main.LoadingFrame
 local TabList = Main.TabList
